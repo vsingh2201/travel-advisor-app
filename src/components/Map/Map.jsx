@@ -6,10 +6,12 @@ import Rating from '@material-ui/lab';
 
 import useStyles from './styles';
 
-const Map = ({setCoordinates, setBounds, coordinates}) => {
+const Map = ({ setCoordinates, setBounds, coordinates}) => {
     // This is a hook in React
     const classes = useStyles();
     const isMobile = useMediaQuery('(min-width:600px)');
+
+    //const coordinates = {lat:0, lng:0};
 
     return (
         <div className={classes.mapContainer}>

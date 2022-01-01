@@ -18,18 +18,7 @@ const options = {
 
 export const getPlacesData = async(sw,ne) => {
     try{
-        const { data: { data } } = await axios.get(URL,{
-                params: {
-                  bl_latitude: sw.lat,
-                  tr_latitude: ne.lat,
-                  bl_longitude: sw.lng,
-                  tr_longitude: ne.lng,
-                },
-                headers: {
-                  'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
-                  'x-rapidapi-key': '58623f0abemsh0519eab60ce09dap1e614ajsn80c52339a08d'
-                }
-              });
+        const { data: { data } } = await axios.get(URL, options);
 
         return data;
 

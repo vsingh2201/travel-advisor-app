@@ -10,7 +10,7 @@ import PlaceDetails from './components/PlaceDetails/PlaceDetails';
 const App = () => {
     const [places, setPlaces] = useState([]);
 
-    const [coordinates, setCoordinates] = useState({});
+    const [coordinates, setCoordinates] = useState({lat:0,lng:0});
 
     const [bounds, setBounds] = useState(null);
 
@@ -23,7 +23,7 @@ const App = () => {
     // means that useEffect will be executed only in the beginning
 
     useEffect(() => {
-        getPlacesData(bounds.sw, bounds.ne)
+        getPlacesData()
         .then((data) => {
             console.log(data);
             setPlaces(data);
@@ -37,13 +37,13 @@ const App = () => {
             <Header />
             <Grid container spacing={3} style={{ width: '100%' }}>
                 <Grid item xs={12} md={4}>
-                    <List places={places}/>
+                    <List />
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <Map 
-                        setCoordinates = {setCoordinates}
-                        setBounds = {setBounds}
-                        coordinates ={coordinates}
+                    setCoordinates={setCoordinates}
+                    setBounds={setBounds}
+                    coordinates={coordinates}
                     />
                 </Grid>
             </Grid>
